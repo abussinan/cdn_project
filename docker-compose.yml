@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  origin_server:
+    build: ./origin
+    container_name: origin_server
+    restart: unless-stopped
+    expose:
+      - "80"
+
+  nginx_l2:
+    build: ./nginx_l2
+    container_name: nginx_l2
+    restart: unless-stopped
+    expose:
+      - "80"
+    depends_on:
+      - origin_server
+
+  nginx_l1:
+    build: ./nginx_l1
+    container_name: nginx_l1
+    restart: unless-stopped
+    ports:
+      - "8080:80" # Changed from 80:80 to 8080:80
+    depends_on:
+      - nginx_l2

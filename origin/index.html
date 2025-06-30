@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CDN Test Page - xyz.te</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Welcome to xyz.te!</h1>
+    <p>This is your local webpage, serving content for the CDN project.</p>
+    <img src="example.jpg" alt="Example Image">
+    <p>Current Server Time (updates every second): <span id="current-time"></span></p>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('current-time').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000); // Update time every second
+        updateTime(); // Initial call
+    </script>
+</body>
+</html>
