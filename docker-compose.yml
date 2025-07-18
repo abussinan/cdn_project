@@ -22,6 +22,6 @@ services:
     container_name: nginx_l1
     restart: unless-stopped
     ports:
-      - "8080:80" # Changed from 80:80 to 8080:80
+      - "80:80"
     depends_on:
       - nginx_l2
